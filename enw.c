@@ -24,6 +24,7 @@ int init_config(Config *cfg,const char* file_path){
   da_push(cfg_map,((ConfigMapping){"folder-path",  TYPE_STRING, &(cfg->IMG_FOLDER)}));
   da_push(cfg_map,((ConfigMapping){"max_number_img",  TYPE_INT, &(cfg->MAX_NUMBER_IMG)}));
   da_push(cfg_map,((ConfigMapping){"enable_flag",  TYPE_INT, &(cfg->ENABLE_FLAG)}));
+  da_push(cfg_map,((ConfigMapping){"offset",  TYPE_INT, &(cfg->OFFSET)}));
   da_push(cfg_map,((ConfigMapping){NULL, 0, NULL}));
 
   if(cfg_map == NULL){
@@ -61,7 +62,8 @@ int init_img(int argc, char **argv, Config *cfg, ImageObjList *img_list){
 int init_raylib(Config *cfg){
   if(!cfg->silent)SetTraceLogLevel(LOG_NONE);
   if(cfg->ENABLE_FLAG)SetConfigFlags(FLAG_WINDOW_TRANSPARENT | FLAG_WINDOW_UNDECORATED);
-  InitWindow(2 * cfg->RADIUS + 2 * cfg->OFFSET, 2 * cfg->RADIUS, "RaylibCircle");
+  InitWindow(2 * cfg->RADIUS + 2 * cfg->OFFSET, 2 * cfg->RADIUS, cfg->W_TITLE);
+  SetTargetFPS(60);
   return 0;
 }
 
@@ -93,6 +95,7 @@ int main(int argc, char *argv[]){
 
   View v = {0};
   v.begin = 0;
+  v.nombre_img = img_list.current;
 
   Scroller scr = {0};
   scr.scroll_rate = cfg.SCROLL_RATE;
@@ -135,7 +138,7 @@ int main(int argc, char *argv[]){
     }
 
     if(IsKeyPressed(KEY_ENTER)){
-      printf("%s\n",img_list.list[v.begin + 5].file_path);
+      printf("%s\n",img_list.list[(v.begin + 5)%v.nombre_img].file_path);
       break;
     }
     

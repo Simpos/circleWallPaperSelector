@@ -207,6 +207,7 @@ void init_default_config(Config *cfg){
   cfg->FONT_SIZE = 10;
   cfg->TEXT_X_OFFSET = 10;
   cfg->IMG_FOLDER = strdup("/home/sim/Images/wallpaper/");
+  cfg->W_TITLE = strdup("RaylibCircle");
 
   cfg->SCROLL_DELAY = 0.4; // 400ms avant que le défilement continu commence
   cfg->SCROLL_RATE = 0.08; // 80ms entre chaque saut d'image pendant le maintien
