@@ -2,4 +2,4 @@
 set +xe
 
 
-gcc  enw.c image_manager.c ui.c event_handler.c -Wextra -Wall -lraylib -lGL -lm -ldl -lrt -lX11 -o circlePaper
+gcc  -Iheaders ./src/enw.c ./src/image_manager.c ./src/ui.c ./src/event_handler.c -Wextra -Wall -lraylib -lGL -lm -ldl -lrt -lX11 -o circlePaper
