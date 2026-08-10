@@ -6,8 +6,7 @@ background-hover-color = 0x00ff00aa
 view-count = 5
 font-size = 20
 text-x-offset = 10
-ratio-img = 1.8
 
-enable_flag = 1
+enable-flag = 1
 offset = 10
-max_number_img = 70
+max-number-img = 70

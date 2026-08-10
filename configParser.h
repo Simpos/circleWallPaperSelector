@@ -18,7 +18,6 @@ typedef struct {
   long int BG_HOVER_COLOR;
   char *W_TITLE;
   size_t VIEW_COUNT;
-  float RATIO_IMG_WIDTH;
   int FONT_SIZE;
   int TEXT_X_OFFSET;
   char *IMG_FOLDER;
@@ -30,7 +29,8 @@ typedef struct {
   int MAX_NUMBER_IMG;
   int IMG_W;
   int IMG_H;
-  bool silent;
+  bool SILENT;
+  bool LOG_INFO;
 
   bool ENABLE_FLAG;
 } Config;
@@ -54,7 +54,6 @@ int read_file(const char *file_path,Config *cfg,ConfigMapping *cfg_map);
 // -- Config part --
 void init_default_config(Config *cfg);
 void print_config(Config *cfg);
-void calculate_img_size(Config *cfg);
 
 #endif
 
@@ -63,7 +62,7 @@ void calculate_img_size(Config *cfg);
 // ---------------------------- Read and parse config file --------------------------
 //
 void pprint(Config *cfg,FILE *stream,const char *fmt, ...) {
-  if(cfg->silent) return;
+  if(cfg->SILENT) return;
   va_list args;
   va_start(args, fmt);
   vfprintf(stream,fmt, args);
@@ -197,31 +196,8 @@ int read_file(const char *file_path,Config *cfg, ConfigMapping *cfg_map){
 // --------------- Config part -------------------
 void init_default_config(Config *cfg){
   cfg->RADIUS = 200;
-  cfg->OFFSET = 250;
-  cfg->BG_COLOR = 0xff0000aa;
-  cfg->FG_COLOR = 0x00ff00aa;
-  cfg->BG_HOVER_COLOR = 0x181818aa;
-  cfg->W_TITLE = NULL;
-  cfg->VIEW_COUNT = 2;
-  cfg->RATIO_IMG_WIDTH = 1.8;
-  cfg->FONT_SIZE = 10;
-  cfg->TEXT_X_OFFSET = 10;
   cfg->IMG_FOLDER = strdup("/home/sim/Images/wallpaper/");
-  cfg->W_TITLE = strdup("RaylibCircle");
-
-  cfg->SCROLL_DELAY = 0.4; // 400ms avant que le défilement continu commence
-  cfg->SCROLL_RATE = 0.08; // 80ms entre chaque saut d'image pendant le maintien
-
-  // Parameter that shouldn't be modified by users
-  cfg->MAX_NUMBER_IMG = 50;
-  cfg->silent = false;
-  cfg->ENABLE_FLAG = true;
-
   cfg->P = (cfg->RADIUS * 10) / 400;
 }
 
-void calculate_img_size(Config *cfg){
-  //cfg->IMG_H = cfg->WINDOW_H / cfg->VIEW_COUNT;
-  //cfg->IMG_W = (int)(cfg->RATIO_IMG_WIDTH * cfg->IMG_H);
-}
 #endif

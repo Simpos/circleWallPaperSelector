@@ -1,0 +1,18 @@
+radius = 200
+offset = 0
+background-color = 0xff000055
+foreground-color = 0xffffff
+background-hover-color = 0x00ff00aa
+view-count = 0
+font-size = 0
+text-x-offset = 0
+scroll-delay = 0.4
+scroll-rate = 0.08
+
+folder-path = /home/sim/Images/wallpaper/
+
+max-number-img = 50
+silent = 0
+log-info = 1
+enable-flag = 0
+
