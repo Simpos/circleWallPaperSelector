@@ -82,11 +82,12 @@ static int get_font_size(Form *f){
 
 void draw_form(ImageObjList img_list, Form *f, Config *cfg, bool center){
   Color color = center ? GetColor(cfg->BG_HOVER_COLOR) : GetColor(cfg->BG_COLOR);
+  Color color_fg = center ? GetColor(cfg->FG_HOVER_COLOR) : GetColor(cfg->FG_COLOR);
 
   //DrawRectangleRec(f->rec, color);
   //DrawTriangle(f->trl_l.a,f->trl_l.c,f->trl_l.b,color);
   //DrawTriangle(f->trl_r.a,f->trl_r.b,f->trl_r.c,color);
-  DrawTextureV(img_list.list[f->img_index].texture,(Vector2){.x = f->rec.x, .y = f->rec.y},WHITE);
-  //draw_text_rect_center(GetFontDefault(),img_list.list[f->img_index].file_path,get_font_size(f),f->rec,WHITE);
+  if(cfg->ENABLE_TEXTURE)DrawTextureV(img_list.list[f->img_index].texture,(Vector2){.x = f->rec.x, .y = f->rec.y},WHITE);
+  if(cfg->ENABLE_FILENAME)draw_text_rect_center(GetFontDefault(),img_list.list[f->img_index].file_path,get_font_size(f),f->rec,color_fg);
 }
 

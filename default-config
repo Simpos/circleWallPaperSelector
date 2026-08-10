@@ -3,6 +3,7 @@ offset = 0
 background-color = 0xff000055
 foreground-color = 0xffffff
 background-hover-color = 0x00ff00aa
+foreground-hover-color = 0x00ff00aa
 view-count = 0
 font-size = 0
 text-x-offset = 0
@@ -11,8 +12,11 @@ scroll-rate = 0.08
 
 folder-path = /home/sim/Images/wallpaper/
 
+enable-filename = 0
+enable-texture = 1
+
 max-number-img = 50
-silent = 0
+silent = 1
 log-info = 1
-enable-flag = 0
+enable-flag = 1
 

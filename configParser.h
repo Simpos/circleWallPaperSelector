@@ -16,6 +16,7 @@ typedef struct {
   long int BG_COLOR;
   long int FG_COLOR;
   long int BG_HOVER_COLOR;
+  long int FG_HOVER_COLOR;
   char *W_TITLE;
   size_t VIEW_COUNT;
   int FONT_SIZE;
@@ -29,10 +30,12 @@ typedef struct {
   int MAX_NUMBER_IMG;
   int IMG_W;
   int IMG_H;
+
   bool SILENT;
   bool LOG_INFO;
-
+  bool ENABLE_FILENAME;
   bool ENABLE_FLAG;
+  bool ENABLE_TEXTURE;
 } Config;
 
 

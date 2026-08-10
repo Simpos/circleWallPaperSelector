@@ -1,12 +1,19 @@
 # specify the color
 background-color = 0xff000055
-foreground-color = 0xffffff
+foreground-color = 0xffff00aa
+foreground-hover-color = 0xff0000aa
 background-hover-color = 0x00ff00aa
 
 view-count = 5
 font-size = 20
 text-x-offset = 10
 
+scroll-delay = 0.3
+scroll-rate = 0.06
+
+enable-filename = 0
 enable-flag = 1
-offset = 10
+enable-texture = 1
+offset = 200
 max-number-img = 70
+window-title = RaylibCircle

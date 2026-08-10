@@ -21,6 +21,7 @@ int init_config(Config *cfg,const char* file_path){
 
   da_push(cfg_map,((ConfigMapping){"background-color",  TYPE_LONG_INT, &(cfg->BG_COLOR)}));
   da_push(cfg_map,((ConfigMapping){"foreground-color",  TYPE_LONG_INT, &(cfg->FG_COLOR)}));
+  da_push(cfg_map,((ConfigMapping){"foreground-hover-color",  TYPE_LONG_INT, &(cfg->FG_HOVER_COLOR)}));
   da_push(cfg_map,((ConfigMapping){"background-hover-color",  TYPE_LONG_INT, &(cfg->BG_HOVER_COLOR)}));
 
 
@@ -33,6 +34,8 @@ int init_config(Config *cfg,const char* file_path){
   da_push(cfg_map,((ConfigMapping){"radius",  TYPE_INT, &(cfg->RADIUS)}));
   da_push(cfg_map,((ConfigMapping){"silent",  TYPE_INT, &(cfg->SILENT)}));
   da_push(cfg_map,((ConfigMapping){"log-info",  TYPE_INT, &(cfg->LOG_INFO)}));
+  da_push(cfg_map,((ConfigMapping){"enable-filename",  TYPE_INT, &(cfg->ENABLE_FILENAME)}));
+  da_push(cfg_map,((ConfigMapping){"enable-texture",  TYPE_INT, &(cfg->ENABLE_TEXTURE)}));
 
   da_push(cfg_map,((ConfigMapping){NULL, 0, NULL}));
 
