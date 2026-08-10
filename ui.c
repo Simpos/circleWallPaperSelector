@@ -25,7 +25,7 @@ float l(int r, int yi){
 
 void set_index(Form *f,View *v){
   for(int i = 0; i < 11; ++i){
-    f[i].img_index = i + v->begin;
+    f[i].img_index = (i + v->begin) % v->nombre_img;
   }
 }
 

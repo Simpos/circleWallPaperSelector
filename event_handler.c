@@ -13,12 +13,14 @@ void scroll(Scroller *scr, bool *addr){
 
 void move(Scroller *scr){
   if(scr->up){
-    *(scr->current_index) = *(scr->current_index) - 1;
+    if (*(scr->current_index) == 0) *(scr->current_index) = scr->number_img - 1;
+    else *(scr->current_index) -= 1;
   }
   if(scr->down){
-    *(scr->current_index) = *(scr->current_index) + 1;
+     if (*(scr->current_index) == (scr->number_img - 1)) *(scr->current_index) = 0;
+    else *(scr->current_index) += 1;
   }
-  *(scr->current_index) = *(scr->current_index) % scr->number_img;
+  //*(scr->current_index) = *(scr->current_index) % scr->number_img;
 }
 
 void reset_scroller(Scroller *scr){

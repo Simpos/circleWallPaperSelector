@@ -11,6 +11,7 @@
 typedef struct {
   size_t begin;
   size_t end; // vraiment util à voir
+  size_t nombre_img;
 } View;
 
 typedef struct {
